@@ -767,14 +767,6 @@ select {
   right: 0px;
 }
 
-.-left-10 {
-  left: -2.5rem;
-}
-
-.-top-12 {
-  top: -3rem;
-}
-
 .top-0 {
   top: 0px;
 }
@@ -866,10 +858,6 @@ select {
 
 .w-10 {
   width: 2.5rem;
-}
-
-.w-12 {
-  width: 3rem;
 }
 
 .w-14 {
