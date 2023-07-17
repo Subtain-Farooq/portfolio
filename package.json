@@ -8,7 +8,6 @@
     "dev:hugo": "hugo server",
     "dev": "run-p dev:*",
     "build:css": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css --minify",
-    "build:minifyCss": "hugo --minify",
     "build:hugo": "hugo",
     "build": "run-s build:*"
   },
