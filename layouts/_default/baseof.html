@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="dark" lang="en" x-data="{ darkMode: localStorage.getItem('dark') === 'true'} " x-init="$watch('darkMode', val => localStorage.setItem('dark', val))" x-bind:class="{ 'dark': darkMode }">
+    {{- partial "head.html" . -}}
+    <body class="antialiased bg-white dark:bg-slate-950 font-sans relative scrollbar-none">
+        <div class="h-screen w-full absolute top-0 inset-0 bg-gradient-to-b from-primary-50 to-white dark:from-primary-950/50 dark:via-secondary-950 dark:to-secondary-950"></div>
+        
+        <div class="snap-y snap-mandatory overflow-y-auto overflow-x-hidden flex flex-col h-screen w-screen">
+            <div class="relative snap-y snap-mandatory" >
+                {{- partial "header.html" . -}}
+                {{- block "main" . }}{{- end }}
+                {{- partial "footer.html" . -}}
+            </div>
+        </div>
+
+        {{ $fslightbox := resources.Get "fslightbox.js" }}
+        <script src="{{ $fslightbox.RelPermalink }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: "auto",
+                spaceBetween: 40,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+
+            });
+
+            var swiper = new Swiper(".mySwiperReviewe", {
+                effect: "fade",
+                spaceBetween: 30,
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
+    </body>
+</html>
